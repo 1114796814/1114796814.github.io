@@ -80,13 +80,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
-		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="qq" target="_blank" href="/1114796814" title="qq"><i class="icon-qq"></i></a>
 		        
 			</div>
 		</nav>
@@ -121,13 +115,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="qq" target="_blank" href="/1114796814" title="qq"><i class="icon-qq"></i></a>
 			        
 				</div>
 			</nav>
@@ -155,166 +143,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Spring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-git" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/07/Spring/">Spring 笔记</a>
+      <a class="article-title" href="/2021/09/09/git/">git</a>
     </h1>
   
 
         
-        <a href="/2021/09/07/Spring/" class="archive-article-date">
-  	<time datetime="2021-09-07T07:39:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-07</time>
+        <a href="/2021/09/09/git/" class="archive-article-date">
+  	<time datetime="2021-09-09T07:03:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><h4 id="1-IOC理论推导Inversion-of-Control-控制反转"><a href="#1-IOC理论推导Inversion-of-Control-控制反转" class="headerlink" title="1.IOC理论推导Inversion of Control 控制反转"></a>1.IOC理论推导Inversion of Control 控制反转</h4><blockquote>
-<p>控制从service层转成了用户</p>
-</blockquote>
-<p><strong>控制反转IoC(Inversion of Control),是一种设计思想，DI(依赖注入)是实现loC的一种方法</strong>,也有人认为DI只是IoC的另一种说法。没有IoC的程序中,我们使用面向对象编程, 对象的创建与对象间的依赖关系完全硬编码在程序中，对象的创建由程序自己控制，控制反转后将对象的创建转移给第三方，个人认为所谓控制反转就是:获得依赖对象的方式反转了。</p>
-<p>采用XML方式配置Bean的时候，Bean的定义信息是和实现分离的，而采用注解的方式可以把两者合为一-体,Bean的定义信息直接以注解的形式定义在实现类中，从而达到了零配置的目的。</p>
-<p><strong>==控制反转是一种通过描述(XML或注解)并通过第三方去生产或获取特定对象的方式。在Spring中实现控制反转的是IoC容器，其实现方法是依赖注入(Dependency Injection,DI)。==</strong></p>
-<h4 id="2-IOC创建对象的形式"><a href="#2-IOC创建对象的形式" class="headerlink" title="2.IOC创建对象的形式"></a>2.IOC创建对象的形式</h4><ol>
-<li><p>无参创建    默认</p>
-</li>
-<li><p>有参</p>
-<ol>
-<li><p>下标赋值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;hello&quot; class=&quot;pojo.Hello&quot;&gt;</span><br><span class="line">    &lt;constructor-arg index=&quot;0&quot; value=&quot;lxc&quot;/&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>类型</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;hello&quot; class=&quot;pojo.Hello&quot;&gt;</span><br><span class="line">    &lt;constructor-arg type=&quot;java.lang.String&quot; value=&quot;lxc&quot;/&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>参数名</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;hello&quot; class=&quot;pojo.Hello&quot;&gt;</span><br><span class="line">    &lt;constructor-arg name=&quot;name&quot; value=&quot;kx&quot;/&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ol>
-<p>总结：在配置文件加载的时候，容器中管理的对象就已经初始化了。</p>
-<h4 id="3-Spring配置"><a href="#3-Spring配置" class="headerlink" title="3.Spring配置"></a>3.Spring配置</h4><p>alias 别名</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;alias name=&quot;hello&quot; alias=&quot;aaaaaaaaaaaaaaaa&quot;/&gt;</span><br></pre></td></tr></table></figure>
-
-<p>bean 里面的  name属性也是别名，可以同时取多个别名，可以逗号 空格 分好等分割</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;hello&quot;</span> <span class="attr">class</span>=<span class="string">&quot;pojo.Hello&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hello2,asadasdasdasdasd&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;kx&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>import 一般用于团队开发，把多个配置文件合成一个</p>
-<h4 id="4-依赖注入"><a href="#4-依赖注入" class="headerlink" title="4.依赖注入"></a>4.依赖注入</h4><h5 id="4-1构造器注入"><a href="#4-1构造器注入" class="headerlink" title="4.1构造器注入"></a>4.1构造器注入</h5><p>如上</p>
-<h5 id="4-2set注入【重点】"><a href="#4-2set注入【重点】" class="headerlink" title="4.2set注入【重点】"></a>4.2set注入【重点】</h5><ul>
-<li>依赖注入：set注入！<ul>
-<li>依赖：bean对象的创建依赖容器</li>
-<li>注入 : 指Bean对象所依赖的资源 , 由容器来设置和装配 .</li>
-</ul>
-</li>
-</ul>
-<h5 id="4-3扩展方式注入"><a href="#4-3扩展方式注入" class="headerlink" title="4.3扩展方式注入"></a>4.3扩展方式注入</h5><p>p命名空间</p>
-<p>c命名空间</p>
-<h4 id="5-Bean的自动装配"><a href="#5-Bean的自动装配" class="headerlink" title="5.Bean的自动装配"></a>5.Bean的自动装配</h4><ul>
-<li>自动装配是Spring满足bean依赖的一种方式！</li>
-<li>Spring会在上下文中自动寻找，并自动给bean装配属性！</li>
-</ul>
-<p>3中</p>
-<ol>
-<li>xml</li>
-<li>java中显示配置</li>
-<li>隐士</li>
-</ol>
-<h5 id="5-1ByName自动装配"><a href="#5-1ByName自动装配" class="headerlink" title="5.1ByName自动装配"></a>5.1ByName自动装配</h5><p>会自动在容器上下文中查找，和自己对象set方法后面的值对应的 找bean：id</p>
-<h5 id="5-2ByType通过类型"><a href="#5-2ByType通过类型" class="headerlink" title="5.2ByType通过类型"></a>5.2ByType通过类型</h5><p>byTyope 找属性相同的</p>
-<h5 id="5-3小结"><a href="#5-3小结" class="headerlink" title="5.3小结"></a>5.3小结</h5><p>当一个bean节点带有 autowire byName的属性时。</p>
-<ol>
-<li>将查找其类中所有的set方法名，例如setCat，获得将set去掉并且首字母小写的字符串，即cat。</li>
-<li>去spring容器中寻找是否有此字符串名称id的对象。</li>
-<li>如果有，就取出注入；如果没有，就报空指针异常。</li>
-</ol>
-<h5 id="5-4注解实现自动装配"><a href="#5-4注解实现自动装配" class="headerlink" title="5.4注解实现自动装配"></a>5.4注解实现自动装配</h5><p>须知：</p>
-<ol>
-<li>导入约束        </li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line"></span><br><span class="line">http://www.springframework.org/schema/context</span><br><span class="line">http://www.springframework.org/schema/context/spring-context.xsd</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>配置注解的支持   </li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span>    <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>    <span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span>    <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans        https://www.springframework.org/schema/beans/spring-beans.xsd        http://www.springframework.org/schema/context        https://www.springframework.org/schema/context/spring-context.xsd&quot;</span>&gt;</span>     <span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>@Autowired</p>
-<p>直接在属性上使用即可！也可以在set方式上使用！</p>
-<p>使用Autowired就不用编写 Set方法了，前提是你这个自动装配的属性在IOC(SPRING)容器中存在，且符合名字byname！</p>
-<p>科普：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Nullable 标记这个字段可以为null</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Autowired(required=false) 说明对象可以为null 否则不允许为空</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Qualifier(value=&quot;dog5222&quot;) 指定选哪一个</span><br></pre></td></tr></table></figure>
-
-<h4 id="6-使用注解开发"><a href="#6-使用注解开发" class="headerlink" title="6.使用注解开发"></a>6.使用注解开发</h4><p>在Spring4之后要用注解开发，就要导入AOP的包</p>
-<h5 id="6-1-Component"><a href="#6-1-Component" class="headerlink" title="6.1@Component"></a>6.1@Component</h5><h5 id="6-2-Value"><a href="#6-2-Value" class="headerlink" title="6.2@Value"></a>6.2@Value</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//@Componet 等价于 &lt;bean id=&quot;user&quot; class=&quot;pojo.User&quot;/&gt;</span><br><span class="line">//@Value 等价于 &lt;property name=&quot;name&quot; value=&quot;lxc&quot;/&gt;</span><br><span class="line">@Component</span><br><span class="line">public class User &#123;</span><br><span class="line">    @Value(&quot;lxc&quot;)</span><br><span class="line">    private String name;</span><br><span class="line"></span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h5 id="6-3-Component衍生的注解"><a href="#6-3-Component衍生的注解" class="headerlink" title="6.3@Component衍生的注解"></a>6.3@Component衍生的注解</h5><ul>
-<li>DAO层   @Repository</li>
-<li>SERVICE层 @Service</li>
-<li>CONTROLLER层 @Controller</li>
-</ul>
-<p>这4个注解功能都一样，都是注册到bean容器中</p>
-<h5 id="6-4-Scope-作用域注解"><a href="#6-4-Scope-作用域注解" class="headerlink" title="6.4@Scope 作用域注解"></a>6.4@Scope 作用域注解</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Scope(&quot;&quot;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="7使用Java的方式配Spring"><a href="#7使用Java的方式配Spring" class="headerlink" title="7使用Java的方式配Spring"></a>7使用Java的方式配Spring</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Component  //将这个类标注为Spring的一个组件，放到容器中！</span><br><span class="line">public class Dog &#123;</span><br><span class="line">   public String name = &quot;dog&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>配置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Configuration  //代表这是一个配置类</span><br><span class="line">public class MyConfig &#123;</span><br><span class="line"></span><br><span class="line">   @Bean //通过方法注册一个bean，这里的返回值就Bean的类型，方法名就是bean的id！</span><br><span class="line">   public Dog dog()&#123;</span><br><span class="line">       return new Dog();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>测试   【注意用 MyConfig.class】</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void test2()&#123;</span><br><span class="line">   ApplicationContext applicationContext =</span><br><span class="line">           new AnnotationConfigApplicationContext(MyConfig.class);</span><br><span class="line">   Dog dog = (Dog) applicationContext.getBean(&quot;dog&quot;);</span><br><span class="line">   System.out.println(dog.name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Import(MyConfig2.class)  //导入合并其他配置类，类似于配置文件中的 inculde 标签</span><br></pre></td></tr></table></figure>
-
-<h4 id="8-代理模式"><a href="#8-代理模式" class="headerlink" title="8.代理模式"></a>8.代理模式</h4><p>SpringAOP的底层</p>
-<p><strong>静态代理角色分析</strong></p>
-<ul>
-<li><p>抽象角色 : 一般使用接口或者抽象类来实现</p>
-</li>
-<li><p>真实角色 : 被代理的角色</p>
-</li>
-<li><p>代理角色 : 代理真实角色 ; 代理真实角色后 , 一般会做一些附属的操作 .</p>
-</li>
-<li><p>客户  :  使用代理角色来进行一些操作 .</p>
-</li>
-</ul>
-<p><strong>动态代理</strong></p>
-<ul>
-<li><p>动态代理的角色和静态代理的一样 .</p>
-</li>
-<li><p>动态代理的代理类是动态生成的 . 静态代理的代理类是我们提前写好的</p>
-</li>
-<li><p>动态代理分为两类 : 一类是基于接口动态代理 , 一类是基于类的动态代理</p>
-</li>
-<li><ul>
-<li>基于接口的动态代理—-JDK动态代理</li>
-<li>基于类的动态代理–cglib</li>
-<li>现在用的比较多的是 javasist 来生成动态代理 . 百度一下javasist</li>
-<li>我们这里使用JDK的原生代码来实现，其余的道理都是一样的！、</li>
-</ul>
-</li>
-</ul>
-<p>核心 : InvocationHandler   和   Proxy  ， 打开JDK帮助文档看看</p>
-<p>【InvocationHandler：调用处理程序】</p>
-<h4 id="9-AOP"><a href="#9-AOP" class="headerlink" title="9.AOP"></a>9.AOP</h4><p>面向切面的编程</p>
-
+        <p><img src="/md_image/git/git-01.png" alt="image-20210628155806873"></p>
+<h3 id="git命令初使用"><a href="#git命令初使用" class="headerlink" title="git命令初使用"></a>git命令初使用</h3><p>git config –global user.name ‘’</p>
+<p>git config –global user.emial ‘’</p>
+<p>git config –global user.phone “”</p>
+<p>git config –global –list</p>
+<p>git config –local –list</p>
+<p>git clone url</p>
+        
       
 
       
@@ -326,7 +182,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/07/Spring/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/09/09/git/">展开全文 >></a>
         </p>
       
 
@@ -356,40 +212,33 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Spring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/09/07/hello-world/">Hello World</a>
+      <a class="article-title" href="/2021/09/07/Spring/">Spring 笔记</a>
     </h1>
   
 
         
-        <a href="/2021/09/07/hello-world/" class="archive-article-date">
-  	<time datetime="2021-09-07T07:34:08.437Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-07</time>
+        <a href="/2021/09/07/Spring/" class="archive-article-date">
+  	<time datetime="2021-09-07T07:39:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+        <h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><h4 id="1-IOC理论推导Inversion-of-Control-控制反转"><a href="#1-IOC理论推导Inversion-of-Control-控制反转" class="headerlink" title="1.IOC理论推导Inversion of Control 控制反转"></a>1.IOC理论推导Inversion of Control 控制反转</h4><blockquote>
+<p>控制从service层转成了用户</p>
+</blockquote>
+<p><strong>控制反转IoC(Inversion of Control),是一种设计思想，DI(依赖注入)是实现loC的一种方法</strong>,也有人认为DI只是IoC的另一种说法。没有IoC的程序中,我们使用面向对象编程, 对象的创建与对象间的依赖关系完全硬编码在程序中，对象的创建由程序自己控制，控制反转后将对象的创建转移给第三方，个人认为所谓控制反转就是:获得依赖对象的方式反转了。</p>
+<p>采用XML方式配置Bean的时候，Bean的定义信息是和实现分离的，而采用注解的方式可以把两者合为一-体,Bean的定义信息直接以注解的形式定义在实现类中，从而达到了零配置的目的。</p>
+<p><strong>==控制反转是一种通过描述(XML或注解)并通过第三方去生产或获取特定对象的方式。在Spring中实现控制反转的是IoC容器，其实现方法是依赖注入(Dependency Injection,DI)。==</strong></p>
+        
       
 
       
@@ -401,7 +250,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/09/07/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/09/07/Spring/">展开全文 >></a>
         </p>
       
 
